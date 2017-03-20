@@ -114,10 +114,7 @@ class Timer
         $time = $this->get($this->split);
         $this->split = $this->getTime();
 
-        if ($time > 60) {
-            return $this->formatReturnTime($time);
-        }
-        return $time;
+        return $this->formatReturnTime($time);
     }
 
     /**
@@ -163,10 +160,10 @@ class Timer
     {
         $secs = floor($time);
         $milli = (int) (($time - $secs) * 1000);
-
         $hours = floor($secs / 3600);
         $minutes = floor(($secs / 60) % 60);
         $seconds = floor($secs % 60);
+        
         if ($hours > 0) {
             return sprintf('%s:%s:%s.%s', $hours, $minutes, $seconds, $milli);
         }
