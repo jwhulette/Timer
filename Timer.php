@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Simple timer class
+ *  Simple timer class
  * This class requires PHP 5
  */
 class Timer
@@ -39,7 +39,7 @@ class Timer
      *
      * @method __construct
      *
-     * @param  integer     $start A start id for multiple timers
+     * @param  int     $start   A start id for multiple timers
      */
     public function __construct($start = null)
     {
@@ -53,7 +53,7 @@ class Timer
      *
      * @method start
      *
-     * @return none
+     * @return void
      */
     public function start()
     {
@@ -79,7 +79,7 @@ class Timer
      *
      * @method pause
      *
-     * @return none
+     * @return void
      */
     public function pause()
     {
@@ -91,7 +91,7 @@ class Timer
      *
      * @method resume
      *
-     * @return none
+     * @return void
      */
     public function resume()
     {
@@ -153,7 +153,7 @@ class Timer
      * Format the time if greater than 60 seconds
      *
      * @method formatReturnTime
-     *
+     * @param float     $time   A time span
      * @return string           The hh:mm:ss.mm
      */
     private function formatReturnTime($time)
