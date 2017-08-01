@@ -161,9 +161,9 @@ class Timer
         $secs = floor($time);
         $milli = (int) (($time - $secs) * 1000);
         $hours = floor($secs / 3600);
-        $minutes = floor(($secs / 60) % 60);
-        $seconds = floor($secs % 60);
-        
+        $minutes = floor(($secs / 60) % 60) < 10 ? '0'.  floor(($secs / 60) % 60) :  floor(($secs / 60) % 60);
+        $seconds = floor($secs % 60) < 10 ? '0'. floor($secs % 60) : floor($secs % 60);
+
         if ($hours > 0) {
             return sprintf('%s:%s:%s.%s', $hours, $minutes, $seconds, $milli);
         }
