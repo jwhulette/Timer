@@ -9,6 +9,7 @@ $timer = new Timer();
 do some work
 
 echo $timer->split();
+Show the time elapsed so far
 
 do some more work
 
