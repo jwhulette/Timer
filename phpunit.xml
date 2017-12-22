@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<phpunit 	bootstrap="vendor/autoload.php"			
+			colors="true"
+			convertErrorsToExceptions="true"
+			convertNoticesToExceptions="true"
+			convertWarningsToExceptions="true"
+			stopOnFailure="true"
+			>
+			<!-- printerClass="Codedungeon\PHPUnitPrettyResultPrinter\Printer" -->
+
+			<testsuites>
+				<testsuite name="Timer">
+					<directory>tests</directory>
+				</testsuite>
+			</testsuites>
+</phpunit>
