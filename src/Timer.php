@@ -1,10 +1,10 @@
 <?php
 
-namespace Timer;
+namespace SimpleTimer;
 
 /**
  *  Simple timer class
- * This class requires PHP 5.
+ *  This class requires PHP 5.
  */
 class Timer
 {
@@ -13,14 +13,14 @@ class Timer
      *
      * @var float
      */
-    private $start;
+    private $start_time;
 
     /**
      * The time the timer was paused.
      *
      * @var float
      */
-    private $pause_time;
+    private $pause_time = 0.0;
 
     /**
      * Save the current time.
@@ -41,11 +41,11 @@ class Timer
      *
      * @method __construct
      *
-     * @param int $start A start id for multiple timers
+     * @param bool Start the timer on initialization
      */
-    public function __construct($start = null)
+    public function __construct($start_time = true)
     {
-        if (is_null($start)) {
+        if ($start_time) {
             $this->start();
         }
     }
@@ -58,7 +58,6 @@ class Timer
     public function start()
     {
         $this->start = $this->getTime();
-        $this->pause_time = 0;
     }
 
     /**
@@ -93,7 +92,7 @@ class Timer
     public function resume()
     {
         $this->start += ($this->getTime() - $this->pause_time);
-        $this->pause_time = 0;
+        $this->pause_time = 0.0;
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-use Timer\Timer;
+use SimpleTimer\Timer;
 use PHPUnit\Framework\TestCase;
 
 /**
