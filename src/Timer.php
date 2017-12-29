@@ -65,7 +65,7 @@ class Timer
      *
      * @method end
      *
-     * @return mixed the time elapsed
+     * @return string a formatted string of the elapsed time
      */
     public function end()
     {
@@ -85,7 +85,7 @@ class Timer
     }
 
     /**
-     * Unpause the timer.
+     * Resume the timer.
      *
      * @method resume
      */
@@ -159,19 +159,19 @@ class Timer
     private function formatReturnTime($time)
     {
         $secs = floor($time);
-        $milli = (int) (($time - $secs) * 1000);
+        $milliseconds = (int) (($time - $secs) * 1000);
         $hours = floor($secs / 3600);
         $minutes = floor(($secs / 60) % 60) < 10 ? '0'.floor(($secs / 60) % 60) : floor(($secs / 60) % 60);
         $seconds = floor($secs % 60) < 10 ? '0'.floor($secs % 60) : floor($secs % 60);
 
         if ($hours > 0) {
-            return sprintf('%s:%s:%s.%s', $hours, $minutes, $seconds, $milli);
+            return sprintf('%s:%s:%s.%s', $hours, $minutes, $seconds, $milliseconds);
         }
         if ($minutes > 0) {
-            return sprintf('%s:%s.%s', $minutes, $seconds, $milli);
+            return sprintf('%s:%s.%s', $minutes, $seconds, $milliseconds);
         }
 
-        return sprintf('%s.%s seconds', $seconds, $milli);
+        return sprintf('%s.%s seconds', $seconds, $milliseconds);
     }
 
     /**

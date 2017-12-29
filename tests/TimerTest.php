@@ -4,12 +4,7 @@ use SimpleTimer\Timer;
 use PHPUnit\Framework\TestCase;
 
 /**
- *  Corresponding Class to test YourClass class.
- *
- *  For each class in your library, there should be a corresponding Unit-Test for it
- *  Unit-Tests should be as much as possible independent from other test going on.
- *
- *  @author yourname
+ *  @author jwhulette@gmail.com
  */
 class TimerTest extends TestCase
 {
@@ -17,5 +12,13 @@ class TimerTest extends TestCase
     {
         $t = new Timer();
         $this->assertTrue(is_object($t));
+    }
+
+    public function test_time_in_seconds()
+    {
+        $t = new Timer();
+        sleep(2);
+        $time = $t->end();
+        $this->assertTrue($time, 2);
     }
 }
