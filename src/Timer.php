@@ -3,8 +3,7 @@
 namespace SimpleTimer;
 
 /**
- *  Simple timer class
- *  This class requires PHP 5.
+ *  Simple timer class.
  */
 class Timer
 {
@@ -39,12 +38,16 @@ class Timer
     /**
      * Start the timer.
      *
-     * @param bool Start the timer on initialization
+     * @param bool  Start the timer on initialization
+     * @param int   The number of decimals to include
      */
-    public function __construct($start_time = true)
+    public function __construct($start_time = true, $decimals = null)
     {
         if ($start_time) {
             $this->start();
+        }
+        if (!null($decimals)) {
+            $this->decimals = $decimals;
         }
     }
 
