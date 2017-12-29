@@ -39,8 +39,6 @@ class Timer
     /**
      * Start the timer.
      *
-     * @method __construct
-     *
      * @param bool Start the timer on initialization
      */
     public function __construct($start_time = true)
@@ -52,8 +50,6 @@ class Timer
 
     /**
      * Start the timer.
-     *
-     * @method start
      */
     public function start()
     {
@@ -62,8 +58,6 @@ class Timer
 
     /**
      * End the timer.
-     *
-     * @method end
      *
      * @return string a formatted string of the elapsed time
      */
@@ -76,8 +70,6 @@ class Timer
 
     /**
      * Pause the timer.
-     *
-     * @method pause
      */
     public function pause()
     {
@@ -86,8 +78,6 @@ class Timer
 
     /**
      * Resume the timer.
-     *
-     * @method resume
      */
     public function resume()
     {
@@ -98,9 +88,7 @@ class Timer
     /**
      * Get the current run time.
      *
-     * @method split
-     *
-     * @return float The time elapsed so far
+     * @return string The time elapsed so far
      */
     public function split()
     {
@@ -116,15 +104,45 @@ class Timer
     /**
      * Get the current run time.
      *
-     * @method elapsed
-     *
-     * @return float The total elapsed time
+     * @return string The total elapsed time
      */
     public function elapsed()
     {
         $time = round(($this->getTime() - $this->start), $this->decimals);
 
         return $this->formatReturnTime($time);
+    }
+
+    /**
+     * Get the number of miliseconds elapsed.
+     *
+     * @return int
+     */
+    public function getMilliSeconds()
+    {
+        return round(($this->getTime() - $this->start) * 1000, $this->decimals);
+    }
+
+    /**
+     * Get the number of seconds elapsed.
+     *
+     * @return int
+     */
+    public function getSeconds()
+    {
+        return floor($this->getTime() - $this->start);
+    }
+
+    /**
+     * Get the number of minutes elapsed.
+     *
+     * @return int
+     */
+    public function getMinutes()
+    {
+        $secs = floor($this->getTime() - $this->start);
+
+        return floor($secs / 60);
     }
 
     /**
